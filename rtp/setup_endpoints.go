@@ -22,8 +22,8 @@ type SetupEndpointsResponse struct {
 	AccessoryAddr Addr        `tlv8:"3"` // AccessoryAddr.IPVersion must be the same as in SetupEndpoints.ControllerAddr.IPVersion
 	Video         CryptoSuite `tlv8:"4"`
 	Audio         CryptoSuite `tlv8:"5"`
-	SsrcVideo     int32       `tlv8:"6"`
-	SsrcAudio     int32       `tlv8:"7"`
+	SsrcVideo     uint32      `tlv8:"6"`
+	SsrcAudio     uint32      `tlv8:"7"`
 }
 
 const (
