@@ -3,6 +3,7 @@ package tlv8
 import (
 	"bytes"
 	"reflect"
+	"strings"
 
 	"github.com/xiam/to"
 )
@@ -58,7 +59,10 @@ func structPayload(v interface{}) ([]byte, error) {
 
 	for i := 0; i < vType.NumField(); i++ {
 		if tlv8, ok := vType.Field(i).Tag.Lookup("tlv8"); ok {
-			tag := uint8(to.Uint64(tlv8))
+			values := strings.Split(tlv8, ",")
+			tag := uint8(to.Uint64(values[0]))
+			//optional := len(values) > 1 && values[1] == "optional"
+
 			field := vValue.Field(i)
 			switch v := field.Interface().(type) {
 			case uint8:
