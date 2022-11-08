@@ -33,7 +33,7 @@ type AudioCodecParameters struct {
 	Samplerate byte `tlv8:"3"`
 
 	// "Note: This TLV will only be presented in the Selected Audio"
-	PacketTime byte `tlv8:"4"` // RFC 4566, supported values: 20, 30, 40, 60 ms
+	PacketTime byte `tlv8:"4,optional"` // RFC 4566, supported values: 20, 30, 40, 60 ms
 }
 
 func DefaultAudioStreamConfiguration() AudioStreamConfiguration {
